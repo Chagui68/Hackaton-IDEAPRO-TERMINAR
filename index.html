@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEAPRO — Agente Inteligente Mercado Público</title>
+    <meta name="description"
+          content="Agente que diagnostica madurez, perfila y recomienda ruta IDEAPRO para venderle al Estado.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/ia-engine.js"></script>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <div class="logo"><span class="logo-icon">◆</span> IDEAPRO <span class="logo-sub">S.A.S.</span></div>
+        <div class="nav-links">
+            <a href="#agente">Agente</a>
+            <a href="#seguimiento">Seguimiento</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#arquitectura">Arquitectura</a>
+            <span class="badge-nav">AGENTE v3 • PRODUCCIÓN</span>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-grid">
+        <div class="hero-text">
+            <span class="eyebrow">ECOSISTEMA IDEAPRO • SERVICIO BÁSICO DE ENTRADA • ESCALABLE</span>
+            <h1>Venderle al <span class="accent">Estado</span> no es suerte. Es preparación.</h1>
+            <p>Agente conversacional que en 3 minutos te perfila, mide 4 dimensiones de madurez y te manda <strong>quirúrgicamente</strong>
+                a la oferta IDEAPRO que sí te sirve. Sin consultor, sin genéricos.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" id="btnHero">Iniciar diagnóstico gratuito →</button>
+                <button class="btn-ghost"
+                        onclick="document.getElementById('agente').scrollIntoView({behavior:'smooth'})">Ver agente
+                </button>
+                <span class="hero-meta">3 min • 8 preguntas • IA multidimensional • PDF + radar</span>
+            </div>
+            <div class="kpis">
+                <div><strong>+1.200</strong><span>diagnósticos</span></div>
+                <div><strong>4</strong><span>dimensiones</span></div>
+                <div><strong>12</strong><span>servicios vivos</span></div>
+                <div><strong>JSON</strong><span>escalable</span></div>
+            </div>
+        </div>
+        <div class="hero-card">
+            <div class="card-top">RUTA DE CRECIMIENTO IDEAPRO — 5 PASOS</div>
+            <div class="steps-mini">
+                <div class="s active"><span>1</span>
+                    <p>Onboarding conversacional (texto libre + opciones)</p></div>
+                <div class="s"><span>2</span>
+                    <p>Diagnóstico 4D + radar (habilitación / SECOP / experiencia / capacidad)</p></div>
+                <div class="s"><span>3</span>
+                    <p>Perfil inteligente + brechas priorizadas</p></div>
+                <div class="s"><span>4</span>
+                    <p>Recomendación quirúrgica + cross-selling</p></div>
+                <div class="s"><span>5</span>
+                    <p>Ruta 90 días + seguimiento y evolución</p></div>
+            </div>
+            <div class="card-foot">Producto escalable del portafolio • No isla tecnológica • Integrable a CRM/SECOP
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ecosistema">
+    <div class="eco-card">
+        <div class="eco-step active"><h4>① Puerta de entrada</h4>
+            <p>Agente (este prototipo) — gratuito y escalable</p></div>
+        <div class="eco-arrow">→</div>
+        <div class="eco-step"><h4>② Servicios base</h4>
+            <p>RUP, SECOP básico, kit jurídico, contenidos</p></div>
+        <div class="eco-arrow">→</div>
+        <div class="eco-step"><h4>③ Servicios especializados</h4>
+            <p>Estrategia, pliegos, alianzas, financiero</p></div>
+    </div>
+</section>
+
+<section id="agente" class="agente-section">
+    <div class="agente-header">
+        <h2>Agente IDEAPRO</h2>
+        <p>Conversación híbrida: elige opción <em>o escribe libre</em>. La IA entiende texto natural, no solo clicks.
+        </p>
+        <div class="progress-wrap">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <span class="progress-txt" id="progressTxt">Listo para iniciar</span>
+    </div>
+
+    <div class="agente-layout">
+        <div class="chat-panel">
+            <div class="chat-head"><span class="dot"></span> Agente IDEAPRO • En línea <span class="chat-tag">SECOP II • RUP • Pliegos tipo • NLP</span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="msg bot">Hola, soy el Agente IDEAPRO v3. Analizo <strong>4 dimensiones</strong> y te armo
+                    ruta personalizada. ¿Empezamos? Puedes escribir libre, no solo botones.
+                </div>
+            </div>
+            <div class="chat-options" id="chatOptions">
+                <button class="btn-primary" onclick="startAgent()">Empezar diagnóstico →</button>
+                <button class="btn-ghost" onclick="loadDemo()">Ver demo con datos reales</button>
+                <button class="btn-ghost" onclick="modoLibre()">Modo conversación libre</button>
+            </div>
+            <div class="chat-input-row" id="chatInputRow" style="display:none">
+                <input id="freeInput" placeholder="Escribe aquí... Ej: Somos una SAS de software y nunca hemos licitado"
+                       autocomplete="off">
+                <button id="btnEnviar" type="button">Enviar</button>
+            </div>
+            <div id="guiaLibre" class="guia-libre" style="display:none">
+                <div class="guia-head">
+                    <strong>📝 No sabes qué escribir? Guía rápida</strong>
+                    <button class="guia-close" onclick="toggleGuia()">✕</button>
+                </div>
+                <p>En 2-3 frases menciona estos 4 puntos (copia/pega y edita):</p>
+                <ol>
+                    <li><strong>Tamaño:</strong> Ej: "Somos 5 personas"</li>
+                    <li><strong>Oferta:</strong> Ej: "hacemos videojuegos / consultoría / obra / suministros"</li>
+                    <li><strong>Experiencia Estado:</strong> Ej: "nunca hemos licitado" o "ya ganamos 1 contrato"</li>
+                    <li><strong>RUP / SECOP:</strong> Ej: "sin RUP, no conocemos SECOP" o "RUP vigente, SECOP
+                        intermedio"
+                    </li>
+                </ol>
+                <div class="guia-ejemplos">
+                    <span>Prueba un ejemplo:</span>
+                    <button class="opt-btn" onclick="usarEjemplo(0)">🎮 Software 5p · sin RUP</button>
+                    <button class="opt-btn" onclick="usarEjemplo(1)">🏗️ Obra 12p · RUP trámite</button>
+                    <button class="opt-btn" onclick="usarEjemplo(2)">💼 Consultoría 3p · con experiencia</button>
+                </div>
+                <div class="guia-check" id="guiaCheck"></div>
+                <small style="color:#64748b">Tip: mientras escribes, la guía marca ✓ lo que ya detecta la IA.</small>
+            </div>
+        </div>
+
+        <div class="perfil-panel">
+            <h3>Perfil en construcción</h3>
+            <div class="perfil-card" id="perfilCard">
+                <div class="perfil-empty">A medida que respondas, aquí se arma tu perfil + radar.</div>
+                <div class="perfil-data" id="perfilData" style="display:none">
+                    <div class="pd-row"><span>Empresa</span><strong id="pEmpresa">-</strong></div>
+                    <div class="pd-row"><span>Sector</span><strong id="pSector">-</strong></div>
+                    <div class="pd-row"><span>Tamaño</span><strong id="pTam">-</strong></div>
+                    <div class="pd-row"><span>Experiencia</span><strong id="pExp">-</strong></div>
+                    <div class="pd-row"><span>RUP</span><strong id="pRup">-</strong></div>
+                    <div class="pd-row"><span>SECOP</span><strong id="pSecop">-</strong></div>
+                    <div class="pd-row"><span>Equipo</span><strong id="pEquipo">-</strong></div>
+                    <div class="pd-row"><span>Objetivo 6m</span><strong id="pObj">-</strong></div>
+                </div>
+            </div>
+
+            <div class="radar-wrap" id="radarWrap" style="display:none">
+                <h4>Radar 4D (vive)</h4>
+                <canvas id="radarMini" height="180"></canvas>
+            </div>
+
+            <div class="historial-card">
+                <h4>Seguimiento • Historial local</h4>
+                <div id="historialBox" class="historial-empty">Sin historial. Al finalizar se guarda y grafica
+                    evolución.
+                </div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn-ghost small" style="flex:1" onclick="clearHistorial()">Borrar historial</button>
+                <button class="btn-ghost small" style="flex:1" onclick="exportPerfil('json')">Exportar JSON</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="resultados" class="resultados" style="display:none">
+    <div class="res-header">
+        <span class="eyebrow" id="resEyebrow" style="color:#5eead4">DIAGNÓSTICO IA v3</span>
+        <h2 id="resTitle">Tu nivel: —</h2>
+        <p id="resDesc">—</p>
+    </div>
+    <div class="res-grid">
+        <div class="score-card">
+            <div class="gauge"><span id="scoreNum">0</span><small>/100</small></div>
+            <div class="gauge-bar">
+                <div id="gaugeFill"></div>
+            </div>
+            <div class="radar-wrap" style="margin-top:12px">
+                <h4>Radar 4 dimensiones</h4>
+                <canvas id="radarFull" height="200"></canvas>
+            </div>
+            <ul class="brechas" id="brechasList"></ul>
+        </div>
+        <div class="reco-card">
+            <h3>Recomendación principal IDEAPRO (quirúrgica)</h3>
+            <div id="recoMain"></div>
+            <h3 style="margin-top:16px">Cross-selling inteligente (2 complementarios)</h3>
+            <div id="recoCross" class="cross-grid"></div>
+            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn-dark" onclick="exportPerfil('pdf')">Descargar ficha PDF</button>
+                <button class="btn-ghost" onclick="exportPerfil('json')">Descargar JSON</button>
+            </div>
+        </div>
+    </div>
+    <div class="ruta">
+        <h3>Ruta de crecimiento — próximos 90 días</h3>
+        <div class="ruta-steps" id="rutaSteps"></div>
+    </div>
+    <div class="res-cta">
+        <button class="btn-primary" onclick="startAgent()">↻ Rehacer diagnóstico</button>
+        <button class="btn-ghost" onclick="document.getElementById('seguimiento').scrollIntoView({behavior:'smooth'})">
+            Ver evolución →
+        </button>
+    </div>
+</section>
+
+<section id="seguimiento" class="seguimiento">
+    <div class="agente-header">
+        <h2>Seguimiento y evolución</h2>
+        <p>Conserva contexto para futuras interacciones. Cada diagnóstico queda guardado y grafica tu progreso.</p>
+    </div>
+    <div class="seg-grid">
+        <div class="seg-card">
+            <h4 style="color:var(--navy)">Evolución de madurez</h4>
+            <canvas id="evoChart" height="180"></canvas>
+            <small style="color:var(--muted)">Se actualiza con cada diagnóstico. Datos en localStorage (migrable a
+                CRM).</small>
+        </div>
+        <div class="seg-card">
+            <h4 style="color:var(--navy)">Historial detallado</h4>
+            <div id="histDetalle"
+                 style="max-height:240px;overflow:auto;display:flex;flex-direction:column;gap:8px;margin-top:8px"></div>
+            <button class="btn-ghost small" style="margin-top:10px" onclick="clearHistorial()">Limpiar historial
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="servicios" class="servicios">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+            <h2>Catálogo vivo IDEAPRO (escalable vía JSON)</h2>
+            <p class="sub">No es genérico. El motor elige por impacto en tu brecha débil. Agrega servicios en <code>data/servicios.json</code>
+                sin tocar código.</p>
+        </div>
+        <div style="display:flex;gap:8px">
+            <input id="filterSvc" placeholder="Filtrar: ej. RUP, SECOP, mentoría"
+                   style="padding:8px 12px;border:1px solid var(--line);border-radius:10px;min-width:220px">
+            <button class="btn-ghost small" onclick="addServicioDemo()">+ Agregar servicio demo</button>
+        </div>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+</section>
+
+<section id="arquitectura" class="arq">
+    <div>
+        <span class="eyebrow" style="color:#5eead4">ARQUITECTURA ESCALABLE</span>
+        <h2>No es isla tecnológica. Es producto del portafolio.</h2>
+        <p>Prototipo como landing independiente, listo para integrar progresivamente al ecosistema digital IDEAPRO.</p>
+        <ul>
+            <li><strong>Frontend estático</strong> → desplegable en GitHub Pages / Vercel / S3. Sin backend para validar
+                UX.
+            </li>
+            <li><strong>Motor IA desacoplado</strong> <code>js/ia-engine.js</code> → hoy heurística, mañana LLM
+                (OpenAI/Claude) sin romper app.
+            </li>
+            <li><strong>Catálogo vivo</strong> <code>data/servicios.json</code> → negocio agrega servicios, impacto y
+                reglas sin dev.
+            </li>
+            <li><strong>Seguimiento</strong> <code>localStorage</code> → migrable a CRM/Supabase/Firestore en 1 sprint.
+            </li>
+            <li><strong>PDF + Radar</strong> con Chart.js + jsPDF → entregable tangible para comercial IDEAPRO.</li>
+        </ul>
+    </div>
+    <div style="background:#fff;color:#0f172a;border-radius:12px;padding:16px">
+        <h4 style="color:var(--navy)">Stack actual (validación)</h4>
+        <p style="color:var(--muted);font-size:.85rem">HTML + CSS + JS vanilla (sin build), Chart.js 4, jsPDF 2, JSON.
+            Cero dependencias de backend.</p>
+        <div style="margin-top:12px;display:grid;gap:8px">
+            <code>index.html:1 — landing + agente</code>
+            <code>js/ia-engine.js:1 — inferencia 4D + NLP</code>
+            <code>js/app.js:1 — orquestación + UI</code>
+            <code>data/servicios.json:1 — catálogo vivo</code>
+            <code>css/style.css:1 — design system IDEAPRO</code>
+        </div>
+        <p style="margin-top:12px;font-size:.8rem;color:var(--muted)">Próximo paso: conectar
+            <code>/api/diagnostico</code> con LLM y guardar en CRM. El contrato IA ya está desacoplado.</p>
+    </div>
+</section>
+
+<footer class="foot">IDEAPRO S.A.S. • Agente como puerta de entrada al ecosistema • Prototipo validación UX • v3
+    Completo • Hecho para escalar
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

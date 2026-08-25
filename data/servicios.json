@@ -1,0 +1,238 @@
+[
+  {
+    "id": "diag360",
+    "nombre": "Diagnóstico 360 Mercado Público",
+    "tipo": "Diagnóstico",
+    "desc": "Radiografía completa: jurídica, financiera, técnica y comercial. Entregable: mapa de brechas priorizado.",
+    "nivel": "Explorador",
+    "tag": "Puerta de entrada",
+    "precio": "Gratuito",
+    "duracion": "2 días",
+    "impacto": {
+      "habilitacion": 30,
+      "secop": 10,
+      "experiencia": 15,
+      "capacidad": 10
+    },
+    "brechas": [
+      "RUP",
+      "oferta indefinida",
+      "sin experiencia"
+    ]
+  },
+  {
+    "id": "rup",
+    "nombre": "Taller RUP Express",
+    "tipo": "Herramienta",
+    "desc": "Inscripción, renovación y actualización sin errores que te descalifican. Plantillas incluidas.",
+    "nivel": "Explorador",
+    "tag": "Habilitador",
+    "precio": "$ 280.000",
+    "duracion": "4 horas",
+    "impacto": {
+      "habilitacion": 45,
+      "secop": 5,
+      "experiencia": 5,
+      "capacidad": 5
+    },
+    "brechas": [
+      "RUP no vigente"
+    ]
+  },
+  {
+    "id": "secop-bas",
+    "nombre": "Curso SECOP II Básico",
+    "tipo": "Capacitación",
+    "desc": "Cuenta, búsqueda inteligente de procesos, alertas y primera oferta sin enredos.",
+    "nivel": "Explorador",
+    "tag": "Básico",
+    "precio": "$ 350.000",
+    "duracion": "8 horas",
+    "impacto": {
+      "habilitacion": 10,
+      "secop": 40,
+      "experiencia": 10,
+      "capacidad": 5
+    },
+    "brechas": [
+      "SECOP nulo"
+    ]
+  },
+  {
+    "id": "secop-int",
+    "nombre": "SECOP II Intermedio + Pliegos Tipo",
+    "tipo": "Capacitación",
+    "desc": "Lectura crítica de pliegos, requisitos habilitantes y cómo evitar rechazos por forma.",
+    "nivel": "Iniciado",
+    "tag": "Intermedio",
+    "precio": "$ 580.000",
+    "duracion": "12 horas",
+    "impacto": {
+      "habilitacion": 15,
+      "secop": 35,
+      "experiencia": 20,
+      "capacidad": 10
+    },
+    "brechas": [
+      "SECOP básico",
+      "pliegos"
+    ]
+  },
+  {
+    "id": "oferta",
+    "nombre": "Mentoría Perfilamiento de Oferta",
+    "tipo": "Mentoría",
+    "desc": "Ajusta tu portafolio para que el Estado sí te compre. Propuesta de valor y catálogo UNSPSC.",
+    "nivel": "Iniciado",
+    "tag": "Mentoría",
+    "precio": "$ 720.000",
+    "duracion": "3 sesiones",
+    "impacto": {
+      "habilitacion": 25,
+      "secop": 10,
+      "experiencia": 20,
+      "capacidad": 15
+    },
+    "brechas": [
+      "oferta indefinida",
+      "sin diferenciación"
+    ]
+  },
+  {
+    "id": "juridico",
+    "nombre": "Kit Capacidad Jurídica y Financiera",
+    "tipo": "Herramienta",
+    "desc": "Checklists, modelos de estados financieros y cálculo de indicadores (liquidez, endeudamiento).",
+    "nivel": "Iniciado",
+    "tag": "Kit",
+    "precio": "$ 320.000",
+    "duracion": "Autogestión",
+    "impacto": {
+      "habilitacion": 20,
+      "secop": 10,
+      "experiencia": 10,
+      "capacidad": 25
+    },
+    "brechas": [
+      "capacidad financiera",
+      "jurídica"
+    ]
+  },
+  {
+    "id": "simulador",
+    "nombre": "Simulador de Licitación Real",
+    "tipo": "Herramienta",
+    "desc": "Simula proceso completo con pliego real, cronómetro y retroalimentación de evaluador.",
+    "nivel": "En Desarrollo",
+    "tag": "Práctica",
+    "precio": "$ 450.000",
+    "duracion": "1 semana",
+    "impacto": {
+      "habilitacion": 10,
+      "secop": 25,
+      "experiencia": 35,
+      "capacidad": 15
+    },
+    "brechas": [
+      "sin experiencia ofertando"
+    ]
+  },
+  {
+    "id": "estrategia",
+    "nombre": "Consultoría Estrategia Comercial Estado",
+    "tipo": "Consultoría",
+    "desc": "Plan 90 días: priorización de entidades, SECOP inteligente y pipeline de oportunidades.",
+    "nivel": "En Desarrollo",
+    "tag": "Estratégico",
+    "precio": "$ 2.800.000",
+    "duracion": "4 semanas",
+    "impacto": {
+      "habilitacion": 15,
+      "secop": 20,
+      "experiencia": 25,
+      "capacidad": 30
+    },
+    "brechas": [
+      "sin estrategia",
+      "dispersión"
+    ]
+  },
+  {
+    "id": "financiero",
+    "nombre": "Mentoría Financiera para Licitar",
+    "tipo": "Mentoría",
+    "desc": "Cupo crédito, garantías (pólizas), flujo de caja para anticipos y facturación Estado.",
+    "nivel": "En Desarrollo",
+    "tag": "Financiero",
+    "precio": "$ 890.000",
+    "duracion": "2 sesiones",
+    "impacto": {
+      "habilitacion": 10,
+      "secop": 5,
+      "experiencia": 10,
+      "capacidad": 40
+    },
+    "brechas": [
+      "capacidad financiera débil"
+    ]
+  },
+  {
+    "id": "pliegos",
+    "nombre": "Consultoría Pliegos y Objeciones",
+    "tipo": "Consultoría",
+    "desc": "Análisis de pliegos complejos, observaciones y subsanaciones con abogado experto.",
+    "nivel": "Avanzado",
+    "tag": "Avanzado",
+    "precio": "$ 1.600.000",
+    "duracion": "Por proceso",
+    "impacto": {
+      "habilitacion": 10,
+      "secop": 30,
+      "experiencia": 30,
+      "capacidad": 15
+    },
+    "brechas": [
+      "pliegos complejos",
+      "rechazos"
+    ]
+  },
+  {
+    "id": "alianzas",
+    "nombre": "Mentoría Alianzas y Consorcios",
+    "tipo": "Mentoría",
+    "desc": "Estructura uniones temporales y consorcios ganadores: roles, porcentajes y riesgos.",
+    "nivel": "Avanzado",
+    "tag": "Escala",
+    "precio": "$ 1.100.000",
+    "duracion": "2 sesiones",
+    "impacto": {
+      "habilitacion": 15,
+      "secop": 15,
+      "experiencia": 25,
+      "capacidad": 35
+    },
+    "brechas": [
+      "escalar ticket",
+      "falta experiencia"
+    ]
+  },
+  {
+    "id": "contenidos",
+    "nombre": "Kit Contenidos IDEAPRO",
+    "tipo": "Contenido",
+    "desc": "40 guías, plantillas, casos de éxito y grabaciones curadas por nivel de madurez.",
+    "nivel": "Todos",
+    "tag": "Contenido",
+    "precio": "$ 180.000/año",
+    "duracion": "On-demand",
+    "impacto": {
+      "habilitacion": 10,
+      "secop": 15,
+      "experiencia": 10,
+      "capacidad": 10
+    },
+    "brechas": [
+      "desinformación"
+    ]
+  }
+]
