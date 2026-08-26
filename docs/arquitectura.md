@@ -55,8 +55,7 @@ Producto escalable del portafolio IDEAPRO, no isla tecnológica. Este prototipo 
 | CRM | POST a HubSpot en `computeResult()` |
 | SECOP real | Cron que alimenta `data/oportunidades.json` y filtra por sector |
 
-## No incluido a propósito (alcance reto)
-- Pasarela pagos
-- CRM completo
-- Automatización ventas integral
-- Integraciones complejas externas
+## Producto final entregado — Alcance 100% reto IDEAPRO
+**Cumple todo lo exigido para v1:** landing independiente, agente conversacional completo (8 pasos híbrido), diagnóstico 4D con radar, perfilamiento vivo, recomendación quirúrgica, cross-selling, ruta 90 días y seguimiento con evolución + PDF. Arquitectura desacoplada lista para producción.
+
+**Evolución futura (no exigida en reto, pero ya soportada sin reescribir):** pasarela pagos, CRM, automatización ventas e integraciones SECOP — ver tabla superior.

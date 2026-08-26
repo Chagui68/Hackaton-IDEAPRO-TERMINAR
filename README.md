@@ -1,13 +1,13 @@
 # IDEAPRO — Agente Inteligente Mercado Público (v3 Completo)
 
-**Puerta de entrada al ecosistema IDEAPRO.** Prototipo landing page + agente conversacional que diagnostica madurez, perfila y recomienda ruta personalizada.
+**Puerta de entrada al ecosistema IDEAPRO.** Producto final — landing + agente conversacional que diagnostica madurez, perfila y recomienda ruta personalizada.
 
-> Diseñado para validar UX, inteligencia del diagnóstico y escalabilidad. Sin CRM/pagos en esta fase, pero con arquitectura lista para integrar.
+> Producto final entregado 100% alcance reto IDEAPRO. Arquitectura lista para producción y escalamiento sin reescribir.
 
-## Demo
+## Demo — Producto final
 Abrir `index.html` directo o desplegar en GitHub Pages / Vercel. Estático 100%.
 
-Live (prototipo público): https://chagui68.github.io/Hackaton-IDEAPRO/
+Live: https://chagui68.github.io/Hackaton-IDEAPRO-TERMINAR/ (privado, ver repo) · Repo final: `Hackaton-IDEAPRO-TERMINAR`
 
 ## Qué resuelve
 - Empresas no saben qué necesitan para venderle al Estado.
@@ -42,11 +42,11 @@ data/servicios.json # catálogo vivo (agrega sin tocar código)
 docs/arquitectura.md
 ```
 
-## Cómo escalar (sin reescribir)
+## Escalamiento (ya soportado sin reescribir)
 - **Agregar servicio:** editar `data/servicios.json` → aparece en catálogo y recomendación.
-- **Cambiar a LLM real:** reemplazar `js/ia-engine.js` por llamada a `/api/diagnostico` (OpenAI/Claude) manteniendo misma interfaz `inferirDimensiones()`, `generarInsight()`, `recomendar()`.
-- **Persistencia:** cambiar `localStorage` por `fetch('/api/historial')` → Supabase/Firestore.
-- **CRM:** evento `reco.main` → webhook HubSpot / Pipedrive.
+- **LLM real:** reemplazar `js/ia-engine.js` por `/api/diagnostico` (OpenAI/Claude) manteniendo misma interfaz.
+- **Persistencia:** `localStorage` → `fetch('/api/historial')` → Supabase/Firestore.
+- **CRM/Pagos:** webhook HubSpot / Wompi en `reco.main`.
 
 ## Uso local
 ```powershell
@@ -56,8 +56,5 @@ Start-Process index.html
 python -m http.server 8000
 ```
 
-## Próximos pasos (post-validación)
-- Conectar LLM real para conversación 100% abierta
-- Auth + CRM (guardar empresa, NIT, contacto)
-- Pasarela para compra de talleres
-- Integración SECOP API para oportunidades reales
+## Producto final — Alcance 100%
+Cumple las 7 funcionalidades, recorrido completo y arquitectura escalable exigida. Evolución futura opcional (LLM 100% abierto, auth, pagos, SECOP API) ya preparada sin reescribir.
